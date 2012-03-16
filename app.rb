@@ -1,10 +1,15 @@
+require 'rubygems'
+require 'bundler'
+
+Bundler.require
+
 class RTLitWeb < Sinatra::Base
 
   Rack::Mime::MIME_TYPES.merge!(".less"=>"text/css", ".scss" =>"text/css")
 
   set :haml, :format => :html5
   set :static, true
-  set :public, 'public'
+  set :public_folder, 'public'
 
   get '/' do
     haml :index
