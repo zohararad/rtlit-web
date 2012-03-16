@@ -1,8 +1,10 @@
 class RTLitWeb < Sinatra::Base
 
-  Rack::Mime::MIME_TYPES.merge!(".less"=>"application/octet-stream", ".css" =>"application/octet-stream", ".scss" =>"application/octet-stream")
+  Rack::Mime::MIME_TYPES.merge!(".less"=>"text/css", ".scss" =>"text/css")
 
   set :haml, :format => :html5
+  set :static, true
+  set :public, 'public'
 
   get '/' do
     haml :index
@@ -19,7 +21,7 @@ class RTLitWeb < Sinatra::Base
 
     STDERR.puts "Uploading file, original name #{name.inspect}"
     rtl_css = RTLit::Converter.to_rtl tmpfile.read
-    response.headers['content_type'] = "application/octet-stream"
+    response.headers['content_type'] = "text/css"
     attachment('rtl-%s' % name)
     response.write(rtl_css)
   end

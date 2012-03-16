@@ -1,15 +1,18 @@
 !!! 5
 %head
   %title RTLit - CSS LTR to RTL converter
+  %link{:href => 'http://fonts.googleapis.com/css?family=Questrial|Merriweather:400,700', :rel => 'stylesheet', :type => 'text/css'}
+  %link{:href => '/stylesheets/styles.css', :rel => 'stylesheet', :media => 'all', :type => 'text/css'}
 
 %body
-  %header
-    %h1 RTLit
-    %h3 Convert your CSS-formatter file from left-to-right to right-to-left
+  %div#layout
+    %header
+      %h1 RTLit
+      %h3 Convert your CSS-formatter file from left-to-right to right-to-left
 
-  %div#content= yield
+    %div#content= yield
 
-  %footer
-    %p
-      RTLit is the online version of the RTLit gem which can be found on
-      %a{:href => 'https://github.com/zohararad/rtlit' } Github
+    %footer
+      %p
+        RTLit is the online version of the RTLit gem which can be found on
+        %a{:href => 'https://github.com/zohararad/rtlit' } Github
