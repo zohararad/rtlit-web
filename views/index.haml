@@ -1,0 +1,7 @@
+%form{:action => '/convert', :method => 'post', :enctype => 'multipart/form-data'}
+  %p
+    %label{:for => 'file_upload'} Choose file to convert
+    %input#file_upload{:type => 'file', :name => 'uploaded_file'}
+    %small Supported formats: .css, .less, .scss
+  %p
+    %input{:type => 'submit', :value => 'Convert to RTL'}
